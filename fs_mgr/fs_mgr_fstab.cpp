@@ -398,6 +398,9 @@ const std::string& get_android_dt_dir() {
 }
 
 static bool is_dt_fstab_compatible() {
+    // Don't use /proc/device-tree/firmware/android/fstab. Not changing the device tree, yet.
+    return false;
+
     std::string dt_value;
     std::string file_name = get_android_dt_dir() + "/fstab/compatible";
     if (read_dt_file(file_name, &dt_value)) {
